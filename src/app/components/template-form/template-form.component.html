@@ -1,0 +1,20 @@
+<div>
+  <h3>Template Driven</h3>
+  <form>
+    <div >
+      <label for="username">Username</label>
+      <input name="username" id="username" type="text" required [(ngModel)]="user.username" #username="ngModel">
+      <div [hidden]="username.valid || username.pristine">
+        Username is required
+      </div>
+      <label for="password" >Password</label>
+      <input name="password" type="password" required [(ngModel)]="user.password" #password="ngModel">
+      <div [hidden]="password.valid || password.pristine">
+          Password is required
+      </div>
+    </div>
+    <div>
+      <button (click)="onSubmit()" type="submit"  class="button-primary"> Login </button>
+    </div>
+  </form>
+</div>

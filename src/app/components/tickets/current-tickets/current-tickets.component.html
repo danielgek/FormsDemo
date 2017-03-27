@@ -1,0 +1,22 @@
+<div class="row" [formGroup]="parentForm">
+  <table class="u-full-width" formArrayName="currentTickets">
+  <thead>
+    <tr>
+      <th>Passanger Name</th>
+      <th>Hotel</th>
+      <th>Car</th>
+      <th>Return trip</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let ticket of currentTickets(); let idx = index" [formGroupName]="idx">
+      <td>{{ ticket.value.name }}</td>
+      <td>{{ ticket.value.hotel }}</td>
+      <td><input type="checkbox" formControlName="returnTrip" value="returntrip"> Return Trip </td>
+      <td><input type="checkbox" formControlName="car" value="car"> Car </td>
+      <td><button class="button-primary" (click)="onTicketRemove(idx)"> Remove </button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

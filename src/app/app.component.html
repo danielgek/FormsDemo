@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="six columns">
+      <app-template-form></app-template-form>
+    </div>
+    <div class="six columns">
+      <app-reactive-form></app-reactive-form>
+    </div>
+  </div>
+  <div class="row" style="height: 400px;"></div>
+  <div class="row">
+      <app-component-form parent="loginForm"></app-component-form>
+    </div>
+</div>
+

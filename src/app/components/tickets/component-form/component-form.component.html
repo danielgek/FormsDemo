@@ -1,0 +1,53 @@
+<div class="row">
+  <h3>TicketLine</h3>
+  <form novalidate (ngSubmit)="onSubmit()" >
+    <div [formGroup]="formGroup" class="row">
+          <div class="row" formGroupName="ticket">
+            <div class="six columns">
+              <label for="name">Passenger Name</label>
+              <input 
+                    type="text" 
+                    placeholder="Your Name"
+                    formControlName="name"
+                    class="u-full-width">
+              <span [hidden]="checkErrors('name')" class="error-message">
+                Passenger Name is mandatory!!
+              </span>
+            </div>
+            <div class="six columns">
+              <label for="name">Hotel</label>
+              <select formControlName="hotel" class="u-full-width">
+                <option value="">Select Hotel</option>
+                <option *ngFor="let hotel of hotels"
+                  [value]="hotel.id">
+                  {{ hotel.name }}
+                </option>
+              </select>
+              <span [hidden]="checkErrors('hotel')" class="error-message">
+                Hotel is mandatory!!
+              </span>
+            </div>
+            <div class="row">
+              <div class="four columns">
+                <input type="checkbox" formControlName="returnTrip">ReturnTrip
+              </div>
+              <div class="four columns">
+                <input type="checkbox" formControlName="car">Car
+              </div>
+              <div class="four columns">
+                <button class="button-primary" (click)="onAddTicket()" [disabled]="formGroup.invalid">Add Ticket</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <app-current-tickets [parentForm]="formGroup"></app-current-tickets>
+            <h4>Trip Total Cost: {{total}}</h4>
+            <button class="button-primary" type="submit" >Buy Tickets</button>
+          </div>
+
+          <div class="row">
+            <pre><code>{{ formGroup.value | json }}</code></pre>
+          </div>
+    </div>
+  </form>
+</div>
