@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Ticket } from '../ticket';
+import { TicketValidators } from '../ticket.validators';
 
 @Component({
   selector: 'app-component-form',
@@ -37,7 +38,7 @@ export class ComponentFormComponent implements OnInit {
         this.createTicketFormGroup({ name: 'Jon', hotel: 3, returnTrip: false, car: false }),
         this.createTicketFormGroup({ name: 'Martha', hotel: 2, returnTrip: true, car: false })
       ])
-    });
+    }, { validator: TicketValidators.checkTicketCount });
 
     this.calcTotalCost();
     this.formGroup.valueChanges.subscribe(() => {

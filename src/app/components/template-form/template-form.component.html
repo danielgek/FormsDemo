@@ -1,6 +1,6 @@
 <div>
   <h3>Template Driven</h3>
-  <form>
+  <form novalidate (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div >
       <label for="username">Username</label>
       <input name="username" id="username" type="text" required [(ngModel)]="user.username" #username="ngModel">
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div>
-      <button (click)="onSubmit()" type="submit"  class="button-primary"> Login </button>
+      <button type="submit"  class="button-primary" [disabled]="form.invalid"> Login </button>
     </div>
   </form>
 </div>

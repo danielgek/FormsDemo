@@ -40,6 +40,12 @@
             </div>
           </div>
           <div class="row">
+            <span [hidden]="!formGroup.hasError('tooManyTickets')" class="error-message">
+                Too many Ticket (only 4 at time)
+            </span>
+
+          </div>
+          <div class="row">
             <app-current-tickets [parentForm]="formGroup"></app-current-tickets>
             <h4>Trip Total Cost: {{total}}</h4>
             <button class="button-primary" type="submit" >Buy Tickets</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-template-form',
@@ -17,8 +18,8 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log(this.user);
+  onSubmit(form:FormGroup) {
+    console.log(form);
   }
 
 }
